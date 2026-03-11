@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { cn } from "../utils/helpers";
 import { ThemeToggle } from "./ThemeToggle";
@@ -10,6 +10,55 @@ import I from "../icons";
  * Reuses ThemeToggle and receives theme from Layout context.
  */
 export function PrivacyPolicy() {
+    // Dynamic SEO meta tags for the Privacy Policy page
+    useEffect(() => {
+        const originalTitle = document.title;
+
+        document.title = "Privacy Policy — USEHUB";
+
+        const metaTags = {
+            description:
+                "Privacy Policy for USEHUB — learn how we collect, use, and protect your information.",
+            "og:title": "Privacy Policy — USEHUB",
+            "og:description":
+                "Privacy Policy for USEHUB — learn how we collect, use, and protect your information.",
+            "og:url": "https://usehub.xyz/privacy",
+        };
+
+        const originals = {};
+
+        // Update meta[name] and meta[property] tags
+        Object.entries(metaTags).forEach(([key, value]) => {
+            const isOg = key.startsWith("og:");
+            const selector = isOg
+                ? `meta[property="${key}"]`
+                : `meta[name="${key}"]`;
+            const el = document.querySelector(selector);
+            if (el) {
+                originals[key] = el.getAttribute("content");
+                el.setAttribute("content", value);
+            }
+        });
+
+        // Update canonical link
+        const canonical = document.querySelector('link[rel="canonical"]');
+        const originalCanonical = canonical?.getAttribute("href");
+        if (canonical) canonical.setAttribute("href", "https://usehub.xyz/privacy");
+
+        return () => {
+            document.title = originalTitle;
+            Object.entries(originals).forEach(([key, value]) => {
+                const isOg = key.startsWith("og:");
+                const selector = isOg
+                    ? `meta[property="${key}"]`
+                    : `meta[name="${key}"]`;
+                const el = document.querySelector(selector);
+                if (el) el.setAttribute("content", value);
+            });
+            if (canonical && originalCanonical)
+                canonical.setAttribute("href", originalCanonical);
+        };
+    }, []);
     const { theme, setTheme, isDark } = useTheme();
 
     return (
