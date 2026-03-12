@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Outlet, Link, useOutletContext } from "react-router-dom";
 import { cn } from "../utils/helpers";
 import { DomainBanner } from "./DomainBanner";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 
 /**
  * Shared layout shell used by every page (marketplace + privacy).
@@ -99,6 +101,8 @@ export function Layout() {
                     </div>
                 </div>
             </footer>
+            <Analytics />
+            <SpeedInsights />
         </div>
     );
 }
