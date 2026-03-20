@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { cn } from '../utils/helpers';
 import I from '../icons';
 
@@ -12,15 +12,18 @@ export function CustomSelect({ value, onChange, options, isDark }) {
         [options, value]
     );
 
-    // Reset focused index when dropdown opens/closes
-    useEffect(() => {
-        if (open) {
-            const idx = options.findIndex((o) => o.value === value);
-            setFocusedIndex(idx >= 0 ? idx : 0);
-        } else {
-            setFocusedIndex(-1);
-        }
-    }, [open, options, value]);
+    // Open with focused index set inline instead of via effect
+    const toggleOpen = () => {
+        setOpen((prev) => {
+            if (!prev) {
+                const idx = options.findIndex((o) => o.value === value);
+                setFocusedIndex(idx >= 0 ? idx : 0);
+            } else {
+                setFocusedIndex(-1);
+            }
+            return !prev;
+        });
+    };
 
     useEffect(() => {
         const onDoc = (e) => {
@@ -73,7 +76,7 @@ export function CustomSelect({ value, onChange, options, isDark }) {
         <div ref={rootRef} className="relative" onKeyDown={handleKeyDown}>
             <button
                 type="button"
-                onClick={() => setOpen((v) => !v)}
+                onClick={toggleOpen}
                 className={cn(
                     "w-full rounded-xl border px-3 py-2.5 outline-none focus:ring-2 inline-flex items-center justify-between gap-2",
                     isDark

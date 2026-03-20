@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { cn } from '../utils/helpers';
 import I from '../icons';
 
@@ -6,9 +6,8 @@ import I from '../icons';
  * Security banner warning users to verify they are on the official domain.
  * Can be dismissed, but reappears on page reload for safety.
  */
-export function DomainBanner({ theme }) {
+export function DomainBanner() {
     const [dismissed, setDismissed] = useState(false);
-    const isDark = theme === "dark";
 
     if (dismissed) return null;
 

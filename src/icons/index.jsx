@@ -23,8 +23,8 @@ export const Swap = (p) => (
     </svg>
 );
 
-// 3) Infinity (Perps)
-export const Infinity = (p) => (
+// 3) InfinityIcon (Perps)
+export const InfinityIcon = (p) => (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" {...p}>
         <path d="M9 9c-2 0-4 1.8-4 3s2 3 4 3c3 0 3-6 6-6c2 0 4 1.8 4 3s-2 3-4 3c-3 0-3-6-6-6z" />
     </svg>
@@ -353,7 +353,7 @@ export const EthereumIcon = (props) => (
 const I = {
     Exchange,
     Swap,
-    Infinity,
+    Infinity: InfinityIcon,
     Crystal,
     Drop,
     Layers,

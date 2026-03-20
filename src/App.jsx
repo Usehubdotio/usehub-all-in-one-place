@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 // Data
 import { CATEGORIES, TOOLS } from "./data";
@@ -61,13 +61,13 @@ async function openTally(topic) {
 // ------------------------------
 export default function App() {
   const { theme, setTheme, isDark } = useTheme();
-  const [activeCategory, setActiveCategory] = useState("all");
-  const [query, setQuery] = useState("");
+  const [activeCategoryRaw, setActiveCategoryRaw] = useState("all");
+  const [queryRaw, setQueryRaw] = useState("");
   const [sort, setSort] = useState("name_asc");
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [supportOpen, setSupportOpen] = useState(false);
 
-  const [atTop, setAtTop] = useState(true);
+  const [atTop, setAtTop] = useState(() => window.scrollY < 60);
 
   // Favorites logic
   const [favorites, setFavorites] = useState(() => {
@@ -98,18 +98,24 @@ export default function App() {
   const ITEMS_PER_PAGE = 9;
   const [visibleCount, setVisibleCount] = useState(ITEMS_PER_PAGE);
 
+  // Wrap setters to reset pagination when filters change
+  const setActiveCategory = (cat) => {
+    setActiveCategoryRaw(cat);
+    setVisibleCount(ITEMS_PER_PAGE);
+  };
+  const setQuery = (val) => {
+    setQueryRaw(val);
+    setVisibleCount(ITEMS_PER_PAGE);
+  };
+  const activeCategory = activeCategoryRaw;
+  const query = queryRaw;
+
   // Scroll watcher for "back to top" button
   useEffect(() => {
     const onScroll = () => setAtTop(window.scrollY < 60);
-    onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-
-  // Reset visible count when filters change
-  useEffect(() => {
-    setVisibleCount(ITEMS_PER_PAGE);
-  }, [activeCategory, query]);
 
   // category key -> label
   const categoryMap = useMemo(() => {
