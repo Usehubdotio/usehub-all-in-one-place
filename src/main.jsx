@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { StrictMode, useEffect } from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { Layout } from "./components/Layout";
@@ -6,6 +6,7 @@ import App from "./App.jsx";
 import { PrivacyPolicy } from "./components/PrivacyPolicy";
 import "./index.css";
 
+// eslint-disable-next-line react-refresh/only-export-components
 function ScrollToTop() {
   const { pathname } = useLocation();
   useEffect(() => {
@@ -15,7 +16,7 @@ function ScrollToTop() {
 }
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
+  <StrictMode>
     <BrowserRouter>
       <ScrollToTop />
       <Routes>
@@ -25,5 +26,5 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         </Route>
       </Routes>
     </BrowserRouter>
-  </React.StrictMode>
+  </StrictMode>
 );

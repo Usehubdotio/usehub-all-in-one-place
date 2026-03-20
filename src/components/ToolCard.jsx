@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { cn, clamp3Style, safeExternalUrl } from '../utils/helpers';
 import I from '../icons';
 import { IconBadge } from './IconBadge';

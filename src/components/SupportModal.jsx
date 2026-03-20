@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { cn } from '../utils/helpers';
 import I, { SolanaIcon, EthereumIcon } from '../icons';
 import { WALLET_ETH, WALLET_SOL } from '../config';

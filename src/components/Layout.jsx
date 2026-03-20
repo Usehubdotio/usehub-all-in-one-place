@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Outlet, Link, useOutletContext } from "react-router-dom";
 import { cn } from "../utils/helpers";
 import { DomainBanner } from "./DomainBanner";
@@ -10,21 +10,19 @@ import { SpeedInsights } from "@vercel/speed-insights/react";
  * Owns the theme state, background layers, DomainBanner, and footer.
  */
 export function Layout() {
-    const [theme, setTheme] = useState("dark");
-
-    // Load saved theme on mount
-    useEffect(() => {
+    const [theme, setTheme] = useState(() => {
         try {
             const saved = localStorage.getItem("usehub_theme");
-            if (saved === "dark" || saved === "light") setTheme(saved);
-        } catch { }
-    }, []);
+            if (saved === "dark" || saved === "light") return saved;
+        } catch { } // eslint-disable-line no-empty
+        return "dark";
+    });
 
     // Persist theme changes
     useEffect(() => {
         try {
             localStorage.setItem("usehub_theme", theme);
-        } catch { }
+        } catch { } // eslint-disable-line no-empty
     }, [theme]);
 
     const isDark = theme === "dark";
@@ -111,6 +109,7 @@ export function Layout() {
  * Hook for child routes to access theme from Layout.
  * Returns { theme, setTheme, isDark }.
  */
+// eslint-disable-next-line react-refresh/only-export-components
 export function useTheme() {
     const ctx = useOutletContext();
     return { ...ctx, isDark: ctx.theme === "dark" };
