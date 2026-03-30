@@ -22,7 +22,7 @@ export function PrivacyPolicy() {
             "og:title": "Privacy Policy — USEHUB",
             "og:description":
                 "Privacy Policy for USEHUB — learn how we collect, use, and protect your information.",
-            "og:url": "https://usehub.xyz/privacy",
+            "og:url": "https://www.usehub.xyz/privacy",
         };
 
         const originals = {};
@@ -43,7 +43,7 @@ export function PrivacyPolicy() {
         // Update canonical link
         const canonical = document.querySelector('link[rel="canonical"]');
         const originalCanonical = canonical?.getAttribute("href");
-        if (canonical) canonical.setAttribute("href", "https://usehub.xyz/privacy");
+        if (canonical) canonical.setAttribute("href", "https://www.usehub.xyz/privacy");
 
         return () => {
             document.title = originalTitle;
@@ -102,12 +102,12 @@ export function PrivacyPolicy() {
                             <p>
                                 <strong>Website:</strong>{" "}
                                 <a
-                                    href="https://usehub.xyz/"
+                                    href="https://www.usehub.xyz/"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className={cn("underline", isDark ? "hover:text-white" : "hover:text-black")}
                                 >
-                                    https://usehub.xyz/
+                                    https://www.usehub.xyz/
                                 </a>
                             </p>
                         </div>

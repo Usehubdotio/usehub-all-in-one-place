@@ -27,7 +27,7 @@ export function DomainBanner() {
                 </div>
                 <span className="text-black/70 text-xs sm:text-sm">
                     Always carefully check that your URL is{" "}
-                    <span className="font-semibold text-black">https://usehub.xyz</span>
+                    <span className="font-semibold text-black">https://www.usehub.xyz</span>
                 </span>
             </div>
             <button
