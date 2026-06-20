@@ -38,7 +38,7 @@ export function IconBadge({ name, url, logoUrl, isDark }) {
     return (
         <div
             className={cn(
-                "h-10 w-10 rounded-xl ring-1 flex items-center justify-center overflow-hidden",
+                "h-12 w-12 rounded-xl ring-1 flex items-center justify-center overflow-hidden shrink-0",
                 isDark ? "bg-white/10 ring-white/10" : "bg-black/5 ring-black/10"
             )}
         >
@@ -48,11 +48,11 @@ export function IconBadge({ name, url, logoUrl, isDark }) {
                     alt={`${name} logo`}
                     loading="lazy"
                     decoding="async"
-                    className="h-6 w-6 object-contain"
+                    className="h-8 w-8 object-contain rounded-lg"
                     onError={() => setImgError(true)}
                 />
             ) : (
-                <span className={cn("text-sm font-semibold tracking-wide", isDark ? "text-white/80" : "text-black/70")}>
+                <span className={cn("text-base font-semibold tracking-wide", isDark ? "text-white/80" : "text-black/70")}>
                     {initials}
                 </span>
             )}
