@@ -28,6 +28,6 @@
     "globals": "^17.6.0",
     "tailwindcss": "^4.3.1",
     "vite": "^5.4.8",
-    "vitest": "^4.1.7"
+    "vitest": "^4.1.9"
   }
 }
