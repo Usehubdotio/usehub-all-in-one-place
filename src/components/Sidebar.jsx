@@ -3,7 +3,18 @@ import { CategoryList } from './CategoryList';
 
 export function Sidebar({ activeKey, setActiveKey, isDark, favoritesCount = 0 }) {
     return (
-        <aside className={cn("h-full w-80 shrink-0 border-r backdrop-blur-xl", isDark ? "border-white/10 bg-black/40" : "border-black/10 bg-white/70")}>
+        <aside
+            className={cn(
+                "sticky top-0 h-screen w-80 shrink-0 border-r backdrop-blur-xl overflow-y-auto overscroll-contain",
+                isDark ? "border-white/10 bg-black/40" : "border-black/10 bg-white/70"
+            )}
+            style={{
+                scrollbarWidth: 'thin',
+                scrollbarColor: isDark
+                    ? 'rgba(255,255,255,0.15) transparent'
+                    : 'rgba(0,0,0,0.15) transparent',
+            }}
+        >
             <div className="p-6">
                 <div>
                     <div className={cn("flex items-center gap-2 text-3xl font-extrabold tracking-wide leading-none", isDark ? "text-white" : "text-black")}>
