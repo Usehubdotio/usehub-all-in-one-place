@@ -1,5 +1,5 @@
 /**
- * Utility functions for USEHUB
+ * Utility functions for UseHub
  */
 
 /**
