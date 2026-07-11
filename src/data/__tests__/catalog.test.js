@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest";
-import { TOOLS, CATEGORIES } from "../index";
+import { TOOLS, CATEGORIES, AI_SUBCATEGORIES } from "../index";
 
-describe("USEHUB catalog integrity", () => {
+describe("UseHub catalog integrity", () => {
     it("has categories", () => {
         expect(Array.isArray(CATEGORIES)).toBe(true);
         expect(CATEGORIES.length).toBeGreaterThan(0);
@@ -30,7 +30,9 @@ describe("USEHUB catalog integrity", () => {
 
     it("every tool category exists in categories config", () => {
         const allowed = new Set(
-            CATEGORIES.map((category) => category.key).filter((key) => key !== "all")
+            [...CATEGORIES, ...AI_SUBCATEGORIES]
+                .map((category) => category.key)
+                .filter((key) => key !== "all")
         );
 
         for (const tool of TOOLS) {

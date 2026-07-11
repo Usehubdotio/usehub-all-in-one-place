@@ -74,13 +74,13 @@ export function SupportModal({ open, onClose, isDark }) {
                                 <I.Heart className="h-5 w-5 text-purple-400" />
                             </span>
                             <div>
-                                <div className={cn("text-xl font-semibold", isDark ? "text-white" : "text-black")}>Support USEHUB</div>
+                                <div className={cn("text-xl font-semibold", isDark ? "text-white" : "text-black")}>Support UseHub</div>
                                 <div className={cn("text-sm", isDark ? "text-white/55" : "text-black/55")}>Keep the catalog free & updated</div>
                             </div>
                         </div>
 
                         <div className={cn("mt-5 text-sm leading-relaxed", isDark ? "text-white/70" : "text-black/70")}>
-                            USEHUB helps you quickly find verified Web3 services — all in one place — for beginners and pros.
+                            UseHub helps you quickly find verified Web3 services — all in one place — for beginners and pros.
                         </div>
 
                         <ul className={cn("mt-3 space-y-2 text-sm", isDark ? "text-white/70" : "text-black/70")}>
@@ -95,7 +95,7 @@ export function SupportModal({ open, onClose, isDark }) {
                         </ul>
 
                         <div className={cn("mt-4 text-sm", isDark ? "text-white/60" : "text-black/60")}>
-                            If donating isn't for you — leave feedback or share USEHUB with friends 🙌
+                            If donating isn't for you — leave feedback or share UseHub with friends 🙌
                         </div>
 
                         <div className="mt-6 space-y-4">
