@@ -14,14 +14,14 @@ export function PrivacyPolicy() {
     useEffect(() => {
         const originalTitle = document.title;
 
-        document.title = "Privacy Policy — USEHUB";
+        document.title = "Privacy Policy — UseHub";
 
         const metaTags = {
             description:
-                "Privacy Policy for USEHUB — learn how we collect, use, and protect your information.",
-            "og:title": "Privacy Policy — USEHUB",
+                "Privacy Policy for UseHub — learn how we collect, use, and protect your information.",
+            "og:title": "Privacy Policy — UseHub",
             "og:description":
-                "Privacy Policy for USEHUB — learn how we collect, use, and protect your information.",
+                "Privacy Policy for UseHub — learn how we collect, use, and protect your information.",
             "og:url": "https://www.usehub.xyz/privacy",
         };
 
@@ -76,7 +76,7 @@ export function PrivacyPolicy() {
                         )}
                     >
                         <I.ArrowUp className="h-4 w-4 -rotate-90" />
-                        Back to USEHUB
+                        Back to UseHub
                     </Link>
 
                     <ThemeToggle theme={theme} setTheme={setTheme} />
@@ -116,7 +116,7 @@ export function PrivacyPolicy() {
                         <div className={cn("border-t pt-8 space-y-2 text-sm", isDark ? "border-white/10 text-white/60" : "border-black/10 text-black/60")}>
                             <p>
                                 <strong className={isDark ? "text-white/80" : "text-black/80"}>Owner / Data Controller:</strong>{" "}
-                                "USEHUB", "we", "us"
+                                "UseHub", "we", "us"
                             </p>
                             <p>
                                 <strong className={isDark ? "text-white/80" : "text-black/80"}>Contact (privacy):</strong>{" "}
@@ -134,11 +134,11 @@ export function PrivacyPolicy() {
                         {/* Section 1 */}
                         <Section n="1" title="Introduction" isDark={isDark}>
                             <p>
-                                This Privacy Policy explains how USEHUB Resources &amp; Services ("USEHUB") collects, uses, and
+                                This Privacy Policy explains how UseHub Resources &amp; Services ("UseHub") collects, uses, and
                                 shares information when you visit our website and use our features.
                             </p>
                             <p>
-                                USEHUB is currently a front-end only directory/catalog of resources and services. We do not
+                                UseHub is currently a front-end only directory/catalog of resources and services. We do not
                                 provide user accounts, logins, or a dedicated back-end database for users at this time.
                             </p>
                         </Section>
@@ -281,7 +281,7 @@ export function PrivacyPolicy() {
                         {/* Section 9 */}
                         <Section n="9" title="Third-Party Links" isDark={isDark}>
                             <p>
-                                USEHUB contains many links to third-party websites/services. We do not control those websites
+                                UseHub contains many links to third-party websites/services. We do not control those websites
                                 and are not responsible for their privacy practices. Please review the privacy policies of
                                 any third-party sites you visit.
                             </p>
@@ -290,7 +290,7 @@ export function PrivacyPolicy() {
                         {/* Section 10 */}
                         <Section n="10" title="Children's Privacy" isDark={isDark}>
                             <p>
-                                USEHUB is not intended for children under 13. We do not knowingly collect personal
+                                UseHub is not intended for children under 13. We do not knowingly collect personal
                                 information from children under 13. If you believe a child has submitted information to us,
                                 contact us and we will delete it.
                             </p>

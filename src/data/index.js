@@ -1,5 +1,5 @@
 /**
- * USEHUB — Data exports
+ * UseHub — Data exports
  */
-export { CATEGORIES } from './categories';
+export { CATEGORIES, AI_SUBCATEGORIES } from './categories';
 export { TOOLS } from './tools';

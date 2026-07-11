@@ -1,5 +1,5 @@
 /**
- * USEHUB — Components exports
+ * UseHub — Components exports
  */
 export { ThemeToggle } from './ThemeToggle';
 export { ActionBtn } from './ActionBtn';
@@ -7,6 +7,7 @@ export { CustomSelect } from './CustomSelect';
 export { IconBadge } from './IconBadge';
 export { ToolCard } from './ToolCard';
 export { CategoryList } from './CategoryList';
+export { BrandWord } from './BrandWord';
 export { Sidebar } from './Sidebar';
 export { MobileDrawer } from './MobileDrawer';
 export { SupportModal } from './SupportModal';

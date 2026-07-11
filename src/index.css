@@ -1,1 +1,149 @@
 @import "tailwindcss";
+
+button:not(:disabled),
+a[href],
+[role="button"]:not([aria-disabled="true"]),
+[role="option"] {
+  cursor: pointer;
+}
+
+.usehub-sidebar-scroll {
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0,
+    rgba(0, 0, 0, 0.22) 18px,
+    #000 54px,
+    #000 calc(100% - 54px),
+    rgba(0, 0, 0, 0.22) calc(100% - 18px),
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0,
+    rgba(0, 0, 0, 0.22) 18px,
+    #000 54px,
+    #000 calc(100% - 54px),
+    rgba(0, 0, 0, 0.22) calc(100% - 18px),
+    transparent 100%
+  );
+}
+
+.usehub-sidebar-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.usehub-sidebar-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.usehub-sidebar-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.055);
+  border-radius: 999px;
+}
+
+.usehub-sidebar-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.11);
+}
+
+.usehub-brand-word {
+  display: inline-flex;
+  color: var(--usehub-brand-base);
+  text-shadow: 0 0 10px var(--usehub-brand-shadow);
+}
+
+.usehub-brand-word--dark {
+  --usehub-brand-base: #c6cbd6;
+  --usehub-brand-glow: #ffffff;
+  --usehub-brand-shadow: rgba(255, 255, 255, 0.08);
+  --usehub-brand-glow-shadow: rgba(255, 255, 255, 0.75);
+}
+
+.usehub-brand-word--light {
+  --usehub-brand-base: #6f7684;
+  --usehub-brand-glow: #111827;
+  --usehub-brand-shadow: rgba(17, 24, 39, 0.08);
+  --usehub-brand-glow-shadow: rgba(17, 24, 39, 0.45);
+}
+
+.usehub-brand-word__letter {
+  animation: usehub-brand-wave 10s ease-in-out infinite;
+  animation-delay: calc(var(--letter-index) * 120ms);
+}
+
+@keyframes usehub-brand-wave {
+  0%,
+  12%,
+  100% {
+    color: var(--usehub-brand-base);
+    text-shadow: 0 0 10px var(--usehub-brand-shadow);
+  }
+
+  3%,
+  7% {
+    color: var(--usehub-brand-glow);
+    text-shadow:
+      0 0 8px var(--usehub-brand-glow-shadow),
+      0 0 18px rgba(118, 114, 144, 0.55),
+      0 0 28px rgba(249, 115, 22, 0.22);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .usehub-brand-word__letter {
+    animation: none;
+  }
+}
+
+.usehub-site-shell {
+  position: relative;
+}
+
+.usehub-dynamic-background {
+  position: absolute;
+  inset: 0;
+}
+
+.usehub-site-shell,
+.usehub-dynamic-background {
+  background-size: 210% 210%, 230% 230%, 250% 250%, 360% 360%;
+  animation: usehub-bg-shift 24s ease-in-out infinite;
+}
+
+.usehub-site-shell--dark,
+.usehub-dynamic-background--dark {
+  background:
+    radial-gradient(1100px 760px at 16% 12%, rgba(249, 115, 22, 0.24), transparent 62%),
+    radial-gradient(980px 720px at 84% 78%, rgba(118, 114, 144, 0.32), transparent 60%),
+    radial-gradient(860px 680px at 56% 46%, rgba(59, 130, 246, 0.14), transparent 64%),
+    linear-gradient(125deg, #000000 0%, #090807 24%, #121019 48%, #05070c 70%, #100806 100%);
+}
+
+.usehub-site-shell--light,
+.usehub-dynamic-background--light {
+  background:
+    radial-gradient(1000px 700px at 18% 10%, rgba(249, 115, 22, 0.16), transparent 62%),
+    radial-gradient(980px 700px at 84% 78%, rgba(118, 114, 144, 0.20), transparent 60%),
+    radial-gradient(820px 640px at 54% 44%, rgba(59, 130, 246, 0.09), transparent 64%),
+    linear-gradient(125deg, #fafafa 0%, #f4f4f5 30%, #f8f7fb 56%, #f6f7fb 78%, #fff7ed 100%);
+}
+
+@keyframes usehub-bg-shift {
+  0% {
+    background-position: 0% 0%, 100% 100%, 50% 0%, 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 100%, 0% 0%, 50% 100%, 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 0%, 100% 100%, 50% 0%, 0% 50%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .usehub-site-shell,
+  .usehub-dynamic-background {
+    animation: none;
+  }
+}

@@ -6,7 +6,7 @@ import I from '../icons';
  * Security banner warning users to verify they are on the official domain.
  * Can be dismissed, but reappears on page reload for safety.
  */
-export function DomainBanner() {
+export function DomainBanner({ onDismiss }) {
     const [dismissed, setDismissed] = useState(false);
 
     if (dismissed) return null;
@@ -14,7 +14,7 @@ export function DomainBanner() {
     return (
         <div
             className={cn(
-                "relative z-50 w-full px-4 py-2 flex items-center justify-between gap-4 text-sm",
+                "sticky top-0 z-50 w-full px-4 py-2 flex items-center justify-between gap-4 text-sm",
                 "bg-amber-400 text-black"
             )}
         >
@@ -32,7 +32,10 @@ export function DomainBanner() {
             </div>
             <button
                 type="button"
-                onClick={() => setDismissed(true)}
+                onClick={() => {
+                    setDismissed(true);
+                    onDismiss?.();
+                }}
                 className="shrink-0 h-6 w-6 rounded flex items-center justify-center hover:bg-black/10 transition-colors"
                 aria-label="Dismiss banner"
             >

@@ -1,5 +1,5 @@
 /**
- * USEHUB — Centralized configuration
+ * UseHub — Centralized configuration
  */
 
 // Wallet addresses for the Support modal
