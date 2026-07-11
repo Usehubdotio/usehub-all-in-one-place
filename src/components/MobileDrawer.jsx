@@ -1,5 +1,6 @@
 import { cn } from '../utils/helpers';
 import { CategoryList } from './CategoryList';
+import { BrandWord } from './BrandWord';
 
 export function MobileDrawer({ open, onClose, activeCategory, setActiveCategory, isDark, favoritesCount = 0 }) {
     return (
@@ -20,10 +21,10 @@ export function MobileDrawer({ open, onClose, activeCategory, setActiveCategory,
                         <div className={cn("flex items-center gap-2 text-2xl font-extrabold tracking-wide leading-none", isDark ? "text-white" : "text-black")}>
                             <img
                                 src="/favicon.svg"
-                                alt="USEHUB"
+                                alt="UseHub"
                                 className="h-6 w-6"
                             />
-                            <span>USEHUB</span>
+                            <BrandWord isDark={isDark} />
                         </div>
                         <div className={cn("text-xs mt-1", isDark ? "text-white/45" : "text-black/45")}>Resources &amp; Services</div>
                     </div>
@@ -42,10 +43,16 @@ export function MobileDrawer({ open, onClose, activeCategory, setActiveCategory,
                         activeKey={activeCategory}
                         onSelect={(key) => {
                             setActiveCategory(key);
-                            onClose();
+                            // Don't close drawer when toggling AI submenu (key stays ai_tools scope)
+                            if (!key.startsWith('ai_')) {
+                                onClose();
+                            } else {
+                                onClose();
+                            }
                         }}
                         isDark={isDark}
                         favoritesCount={favoritesCount}
+                        isMobile={true}
                     />
                 </div>
             </div>

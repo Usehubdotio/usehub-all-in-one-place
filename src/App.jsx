@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 
 // Data
-import { CATEGORIES, TOOLS } from "./data";
+import { CATEGORIES, AI_SUBCATEGORIES, TOOLS } from "./data";
 
 // Icons
 import I from "./icons";
@@ -14,58 +14,22 @@ import {
   ToolCard,
   Sidebar,
   MobileDrawer,
-  SupportModal,
 } from "./components";
 import { useTheme } from "./components/Layout";
 
 // Utilities
 import { cn } from "./utils/helpers";
-
-// ------------------------------
-// Tally widget script
-// ------------------------------
-const TALLY_FORM_ID = "5BjvlP";
-
-async function ensureTallyReady(timeoutMs = 2500) {
-  const start = Date.now();
-  while (Date.now() - start < timeoutMs) {
-    if (window.Tally && typeof window.Tally.openPopup === "function") return true;
-    await new Promise(r => setTimeout(r, 50));
-  }
-  return false;
-}
-
-async function openTally(topic) {
-  const ok = await ensureTallyReady();
-
-  if (ok) {
-    window.Tally.openPopup(TALLY_FORM_ID, {
-      layout: "modal",
-      overlay: true,
-      width: 700,
-      hideTitle: true,
-      hiddenFields: { topic },
-    });
-    return;
-  }
-
-  window.open(
-    `https://tally.so/r/${TALLY_FORM_ID}?topic=${encodeURIComponent(topic)}`,
-    "_blank",
-    "noopener,noreferrer"
-  );
-}
+import { openTally } from "./utils/tally";
 
 // ------------------------------
 // Page
 // ------------------------------
 export default function App() {
-  const { theme, setTheme, isDark } = useTheme();
+  const { theme, setTheme, isDark, domainBannerVisible, footerOverlap } = useTheme();
   const [activeCategoryRaw, setActiveCategoryRaw] = useState("all");
   const [queryRaw, setQueryRaw] = useState("");
   const [sort, setSort] = useState("name_asc");
   const [drawerOpen, setDrawerOpen] = useState(false);
-  const [supportOpen, setSupportOpen] = useState(false);
 
   const [atTop, setAtTop] = useState(() => window.scrollY < 60);
 
@@ -121,6 +85,7 @@ export default function App() {
   const categoryMap = useMemo(() => {
     const m = new Map();
     CATEGORIES.forEach((c) => m.set(c.key, c.label));
+    AI_SUBCATEGORIES.forEach((c) => m.set(c.key, c.label));
     return m;
   }, []);
 
@@ -139,6 +104,9 @@ export default function App() {
 
     if (activeCategory === "favorites") {
       list = list.filter(t => favorites.includes(t.id));
+    } else if (activeCategory === "ai_tools") {
+      // Show all tools in any AI subcategory
+      list = list.filter((t) => t.category.startsWith("ai_"));
     } else if (activeCategory !== "all") {
       list = list.filter((t) => t.category === activeCategory);
     }
@@ -163,18 +131,22 @@ export default function App() {
 
   const activeLabel = activeCategory === "favorites"
     ? "My Favorites"
-    : (categoryMap.get(activeCategory) || "All in One");
+    : activeCategory === "ai_tools"
+      ? "AI Tools"
+      : (categoryMap.get(activeCategory) || "All in One");
 
   return (
     <>
 
       <div className="relative flex min-h-screen">
-        <div className="hidden lg:block">
+        <div className="hidden w-80 shrink-0 lg:block">
           <Sidebar
             activeKey={activeCategory}
             setActiveKey={setActiveCategory}
             isDark={isDark}
             favoritesCount={favorites.length}
+            domainBannerVisible={domainBannerVisible}
+            footerOverlap={footerOverlap}
           />
         </div>
 
@@ -205,10 +177,10 @@ export default function App() {
               <div className={cn("flex items-center gap-2 text-sm font-semibold tracking-wide", isDark ? "text-white/70" : "text-black/60")}>
                 <img
                   src="/favicon.svg"
-                  alt="USEHUB"
+                  alt="UseHub"
                   className="h-4 w-4"
                 />
-                <span>USEHUB</span>
+                <span>UseHub</span>
               </div>
               <div className="w-11" />
             </div>
@@ -227,22 +199,6 @@ export default function App() {
                     isDark ? "!text-white" : "!text-black"
                   )}
                   iconToneClassName={isDark ? "!text-white" : "!text-black"}
-                />
-
-                <ActionBtn
-                  icon={<I.Heart className="h-4 w-4" />}
-                  label="Support"
-                  theme={theme}
-                  iconToneClassName="text-purple-400"
-                  onClick={() => setSupportOpen(true)}
-                />
-
-                <ActionBtn
-                  icon={<I.Message className="h-4 w-4" />}
-                  label="Feedback"
-                  onClick={() => openTally("feedback")}
-                  theme={theme}
-                  iconToneClassName="text-lime-300"
                 />
 
                 <ThemeToggle theme={theme} setTheme={setTheme} compact />
@@ -318,19 +274,13 @@ export default function App() {
           </div>
         </main>
 
-        <SupportModal
-          open={supportOpen}
-          onClose={() => setSupportOpen(false)}
-          isDark={isDark}
-        />
-
         {/* Back-to-top button */}
         {!atTop && (
           <button
             type="button"
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             className={cn(
-              "fixed z-40 bottom-6 right-6 h-11 w-11 rounded-full border backdrop-blur-xl transition",
+              "fixed z-50 bottom-6 right-6 h-11 w-11 rounded-full border backdrop-blur-xl transition",
               isDark ? "bg-white/10 hover:bg-white/15 border-white/15 text-white" : "bg-white/80 hover:bg-white border-black/10 text-black"
             )}
             aria-label="Back to top"
@@ -343,3 +293,5 @@ export default function App() {
     </>
   );
 }
+
+

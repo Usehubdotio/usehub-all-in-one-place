@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { TOOLS, CATEGORIES } from "../index";
 
-describe("USEHUB catalog integrity", () => {
+describe("UseHub catalog integrity", () => {
     it("has categories", () => {
         expect(Array.isArray(CATEGORIES)).toBe(true);
         expect(CATEGORIES.length).toBeGreaterThan(0);

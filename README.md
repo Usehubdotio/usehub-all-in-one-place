@@ -1,4 +1,4 @@
-# USEHUB — Your Crypto Toolkit in One Link
+# UseHub — Your Crypto Toolkit in One Link
 
 > A curated hub of **185 +** tools, marketplaces, and services for crypto traders, DeFi users, builders, and founders — [usehub.xyz](https://usehub.xyz/)
 
@@ -11,7 +11,7 @@
 
 ## 🔎 Overview
 
-**USEHUB** is a single-page web application that aggregates the most popular and useful Web3 resources into a clean, searchable directory. Instead of bookmarking dozens of links, users can browse, search, filter, and favorite everything from centralized exchanges and DEXs to airdrop trackers, on-chain data platforms, and Web3 job boards — all from one place.
+**UseHub** is a single-page web application that aggregates the most popular and useful Web3 resources into a clean, searchable directory. Instead of bookmarking dozens of links, users can browse, search, filter, and favorite everything from centralized exchanges and DEXs to airdrop trackers, on-chain data platforms, and Web3 job boards — all from one place.
 
 ### ✨ Key Features
 
@@ -105,7 +105,7 @@ Want to **add a new tool** or **suggest an improvement**?
 
 ## 📜 License
 
-© 2026 USEHUB. All rights reserved.
+© 2026 UseHub. All rights reserved.
 
 ---
 

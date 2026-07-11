@@ -1,5 +1,5 @@
 /**
- * USEHUB — Inline SVG icons (no deps)
+ * UseHub — Inline SVG icons (no deps)
  */
 
 // 1) Exchange (CEX)
@@ -272,6 +272,12 @@ export const ChevronDown = (p) => (
     </svg>
 );
 
+export const ChevronRight = (p) => (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" {...p}>
+        <path d="M9 6l6 6-6 6" />
+    </svg>
+);
+
 export const ArrowUp = (p) => (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" {...p}>
         <path d="M12 19V5" />
@@ -322,6 +328,19 @@ export const Sun = (p) => (
     </svg>
 );
 
+export const Settings = (p) => (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" {...p}>
+        <path d="M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z" />
+        <path d="M19.4 15a1.7 1.7 0 0 0 .34 1.88l.04.04a2 2 0 0 1-2.83 2.83l-.04-.04A1.7 1.7 0 0 0 15 19.4a1.7 1.7 0 0 0-1 .31V20a2 2 0 0 1-4 0v-.06a1.7 1.7 0 0 0-1-.31 1.7 1.7 0 0 0-1.88.34l-.04.04a2 2 0 0 1-2.83-2.83l.04-.04A1.7 1.7 0 0 0 4.6 15a1.7 1.7 0 0 0-.31-1H4a2 2 0 0 1 0-4h.06a1.7 1.7 0 0 0 .31-1 1.7 1.7 0 0 0-.34-1.88l-.04-.04a2 2 0 0 1 2.83-2.83l.04.04A1.7 1.7 0 0 0 9 4.6a1.7 1.7 0 0 0 1-.31V4a2 2 0 0 1 4 0v.06a1.7 1.7 0 0 0 1 .31 1.7 1.7 0 0 0 1.88-.34l.04-.04a2 2 0 0 1 2.83 2.83l-.04.04A1.7 1.7 0 0 0 19.4 9c.12.32.23.65.31 1H20a2 2 0 0 1 0 4h-.06a1.7 1.7 0 0 0-.31 1z" />
+    </svg>
+);
+
+export const Check = (p) => (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" {...p}>
+        <path d="M20 6L9 17l-5-5" />
+    </svg>
+);
+
 export const Star = (p) => (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" {...p}>
         <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
@@ -346,6 +365,21 @@ export const EthereumIcon = (props) => (
         <path d="M127.9 420V307.7L0 232.5 127.9 420z" />
         <path d="M127.9 283.8l127.9-75.6-127.9-58.2v133.8z" />
         <path d="M0 208.2l127.9 75.6V150L0 208.2z" />
+    </svg>
+);
+
+// AI Brain icon (AI Tools category)
+export const Brain = (p) => (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" {...p}>
+        <path d="M12 2a7 7 0 0 1 7 7c0 2.5-1.3 4.7-3.3 6H8.3C6.3 13.7 5 11.5 5 9a7 7 0 0 1 7-7z" />
+        <path d="M9 22h6" />
+        <path d="M10 19h4" />
+        <path d="M8 15h8" />
+        <circle cx="10" cy="8" r="1" fill="currentColor" />
+        <circle cx="14" cy="8" r="1" fill="currentColor" />
+        <circle cx="12" cy="11" r="1" fill="currentColor" />
+        <path d="M10 8l2 3" />
+        <path d="M14 8l-2 3" />
     </svg>
 );
 
@@ -382,13 +416,17 @@ const I = {
     External,
     Menu,
     ChevronDown,
+    ChevronRight,
     ArrowUp,
     Plus,
     Heart,
     Star,
     Message,
     Sun,
+    Settings,
+    Check,
     X,
+    Brain,
 };
 
 export default I;
