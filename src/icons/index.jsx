@@ -383,6 +383,17 @@ export const Brain = (p) => (
     </svg>
 );
 
+// Newspaper (News & Research)
+export const Newspaper = (p) => (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" {...p}>
+        <path d="M4 4h16a1 1 0 0 1 1 1v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a1 1 0 0 1 1-1z" />
+        <path d="M7 8h6" />
+        <path d="M7 12h10" />
+        <path d="M7 16h10" />
+        <path d="M15 8h2v3h-2z" fill="currentColor" opacity="0.3" />
+    </svg>
+);
+
 // Default export as object for backward compatibility
 const I = {
     Exchange,
@@ -427,6 +438,7 @@ const I = {
     Check,
     X,
     Brain,
+    Newspaper,
 };
 
 export default I;

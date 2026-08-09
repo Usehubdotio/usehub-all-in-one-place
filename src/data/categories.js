@@ -24,6 +24,7 @@ export const CATEGORIES = [
     { key: "trading_tools", label: "Trading & Investment tools", icon: I.Candles },
     { key: "data_sources", label: "Crypto & Onchain Data", icon: I.Database },
     { key: "dashboards", label: "Dashboards", icon: I.Chart },
+    { key: "news_research", label: "News & Research", icon: I.Newspaper },
     { key: "learn_free", label: "Learning free courses", icon: I.Graduation },
     { key: "jobs", label: "Job & Vacancies", icon: I.Briefcase },
 ];
