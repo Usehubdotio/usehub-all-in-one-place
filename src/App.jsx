@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 
 // Data
-import { CATEGORIES, AI_SUBCATEGORIES, TOOLS } from "./data";
+import { CATEGORIES, AI_SUBCATEGORIES, WALLET_SUBCATEGORIES, TOOLS } from "./data";
 
 // Icons
 import I from "./icons";
@@ -86,6 +86,7 @@ export default function App() {
     const m = new Map();
     CATEGORIES.forEach((c) => m.set(c.key, c.label));
     AI_SUBCATEGORIES.forEach((c) => m.set(c.key, c.label));
+    WALLET_SUBCATEGORIES.forEach((c) => m.set(c.key, c.label));
     return m;
   }, []);
 
@@ -107,6 +108,9 @@ export default function App() {
     } else if (activeCategory === "ai_tools") {
       // Show all tools in any AI subcategory
       list = list.filter((t) => t.category.startsWith("ai_"));
+    } else if (activeCategory === "wallets") {
+      // Show all tools in any Wallet subcategory
+      list = list.filter((t) => t.category.startsWith("wallet_"));
     } else if (activeCategory !== "all") {
       list = list.filter((t) => t.category === activeCategory);
     }
@@ -133,7 +137,9 @@ export default function App() {
     ? "My Favorites"
     : activeCategory === "ai_tools"
       ? "AI Tools"
-      : (categoryMap.get(activeCategory) || "All in One");
+      : activeCategory === "wallets"
+        ? "Wallets Interactions"
+        : (categoryMap.get(activeCategory) || "All in One");
 
   return (
     <>
