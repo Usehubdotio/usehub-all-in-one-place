@@ -140,7 +140,7 @@ export function Layout() {
                                 </svg>
                             </a>
                             <a
-                                href="https://x.com/usehubdotio"
+                                href="https://x.com/usehubdotxyz"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 aria-label="X (Twitter)"

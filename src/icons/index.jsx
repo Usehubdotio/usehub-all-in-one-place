@@ -394,6 +394,15 @@ export const Newspaper = (p) => (
     </svg>
 );
 
+// Umbrella (Insurance & Risk Management)
+export const Umbrella = (p) => (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...p}>
+        <path d="M22 12a10 10 0 0 0-20 0Z" />
+        <path d="M12 12v8a2 2 0 0 0 4 0" />
+        <path d="M12 2v2" />
+    </svg>
+);
+
 // Default export as object for backward compatibility
 const I = {
     Exchange,
@@ -439,6 +448,7 @@ const I = {
     X,
     Brain,
     Newspaper,
+    Umbrella,
 };
 
 export default I;
