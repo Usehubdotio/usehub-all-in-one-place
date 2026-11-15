@@ -6,6 +6,9 @@ on:
   push:
     branches: [main]
 
+permissions:
+  contents: read
+
 jobs:
   quality-gate:
     name: quality-gate
@@ -15,6 +18,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v7
+        with:
+          persist-credentials: false
 
       - name: Setup Node.js
         uses: actions/setup-node@v6
@@ -30,6 +35,9 @@ jobs:
 
       - name: Run tests
         run: npm run test
+
+      - name: Check production dependencies
+        run: npm audit --omit=dev --audit-level=high
 
       - name: Build project
         run: npm run build
