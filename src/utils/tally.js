@@ -1,5 +1,9 @@
 const TALLY_FORM_ID = "5BjvlP";
 
+export function tallyFormUrl(topic) {
+  return `https://tally.so/r/${TALLY_FORM_ID}?topic=${encodeURIComponent(topic)}`;
+}
+
 async function ensureTallyReady(timeoutMs = 2500) {
   const start = Date.now();
   while (Date.now() - start < timeoutMs) {
@@ -24,7 +28,7 @@ export async function openTally(topic) {
   }
 
   window.open(
-    `https://tally.so/r/${TALLY_FORM_ID}?topic=${encodeURIComponent(topic)}`,
+    tallyFormUrl(topic),
     "_blank",
     "noopener,noreferrer"
   );

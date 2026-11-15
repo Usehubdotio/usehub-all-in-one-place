@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { cn } from "../utils/helpers";
 import { ThemeToggle } from "./ThemeToggle";
 import { useTheme } from "./Layout";
+import { tallyFormUrl } from "../utils/tally";
 import I from "../icons";
 
 /**
@@ -121,12 +122,12 @@ export function PrivacyPolicy() {
                             <p>
                                 <strong className={isDark ? "text-white/80" : "text-black/80"}>Contact (privacy):</strong>{" "}
                                 <a
-                                    href="https://t.me/Usehub_Manager"
+                                    href={tallyFormUrl("feedback")}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className={cn("underline", isDark ? "hover:text-white" : "hover:text-black")}
                                 >
-                                    Telegram
+                                    Feedback form
                                 </a>
                             </p>
                         </div>
@@ -316,12 +317,12 @@ export function PrivacyPolicy() {
                             <p>
                                 To exercise these rights, contact us at:{" "}
                                 <a
-                                    href="https://t.me/Usehub_Manager"
+                                    href={tallyFormUrl("feedback")}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className={cn("underline font-semibold", isDark ? "text-white/90 hover:text-white" : "text-black/90 hover:text-black")}
                                 >
-                                    Telegram
+                                    Feedback form
                                 </a>
                             </p>
                             <p className={cn("text-sm", isDark ? "text-white/60" : "text-black/60")}>
@@ -343,12 +344,12 @@ export function PrivacyPolicy() {
                             <p>
                                 Privacy questions or requests:{" "}
                                 <a
-                                    href="https://t.me/Usehub_Manager"
+                                    href={tallyFormUrl("feedback")}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className={cn("underline font-semibold", isDark ? "text-white/90 hover:text-white" : "text-black/90 hover:text-black")}
                                 >
-                                    Telegram
+                                    Feedback form
                                 </a>
                             </p>
                         </Section>
