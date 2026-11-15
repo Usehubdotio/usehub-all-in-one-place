@@ -5,7 +5,7 @@
             "headers": [
                 {
                     "key": "Content-Security-Policy",
-                    "value": "default-src 'self'; script-src 'self' https://tally.so 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https:; frame-src https://tally.so; frame-ancestors 'none';"
+                    "value": "default-src 'self'; script-src 'self' 'sha384-nWr4l6rk7NcNDYGeXCRBBdosLfVnxfv8Kr4FhHZrR+wnF5PaIH97nadcbJ+EOTuD'; script-src-attr 'none'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://tally.so https://vitals.vercel-insights.com https://vitals.vercel-analytics.com; frame-src https://tally.so; frame-ancestors 'none'; object-src 'none'; base-uri 'none'; form-action 'self' https://tally.so; worker-src 'none';"
                 },
                 {
                     "key": "X-Frame-Options",
