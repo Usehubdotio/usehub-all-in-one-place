@@ -26,7 +26,6 @@
 | **Auto-fetched logos** | Each card tries to display the project's real favicon via Google S2 Favicon service, with an initials fallback |
 | **Domain verification banner** | A security bar confirms users are on the official `usehub.xyz` domain |
 | **Tally form integration** | "Add an App" and "Feedback" buttons open embedded Tally forms |
-| **Support modal** | Dedicated donation / support dialog |
 | **Mobile-first layout** | Responsive grid + slide-out drawer navigation on small screens |
 | **Full SEO** | Open Graph, Twitter Card, JSON-LD structured data, canonical URL, sitemap, robots.txt |
 | **Privacy Policy** | Separate HTML page with its own dark/light theme toggle |
@@ -111,4 +110,4 @@ Want to **add a new tool** or **suggest an improvement**?
 
 ## 📬 Contact
 
-For questions, feedback, or partnership inquiries, use the **Feedback** button on [usehub.xyz](https://usehub.xyz/) or reach out via the channels listed in the Support modal.
+For questions, feedback, or partnership inquiries, use the **Feedback** button on [usehub.xyz](https://usehub.xyz/).

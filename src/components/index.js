@@ -10,7 +10,6 @@ export { CategoryList } from './CategoryList';
 export { BrandWord } from './BrandWord';
 export { Sidebar } from './Sidebar';
 export { MobileDrawer } from './MobileDrawer';
-export { SupportModal } from './SupportModal';
 export { DomainBanner } from './DomainBanner';
 export { Layout, useTheme } from './Layout';
 export { PrivacyPolicy } from './PrivacyPolicy';
