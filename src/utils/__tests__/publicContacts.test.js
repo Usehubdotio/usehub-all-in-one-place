@@ -16,11 +16,13 @@ function publishedSources(directory) {
 }
 
 describe('public contact destinations', () => {
-  it('does not publish the removed Telegram identity in any source or public asset', () => {
+  it('keeps the removed Telegram contact and donation module out of sources and public assets', () => {
     const files = [path.join(root, 'index.html'), ...publishedSources(path.join(root, 'src')), ...publishedSources(path.join(root, 'public'))];
     const rejectedIdentity = /(?:t\.me\/|telegram\.me\/|@)usehub_manager\b/i;
     for (const filename of files) {
-      expect(readFileSync(filename, 'utf8'), path.relative(root, filename)).not.toMatch(rejectedIdentity);
+      const contents = readFileSync(filename, 'utf8');
+      expect(contents, path.relative(root, filename)).not.toMatch(rejectedIdentity);
+      expect(contents, path.relative(root, filename)).not.toMatch(/\b(?:SupportModal|WALLET_ETH|WALLET_SOL)\b|Support UseHub/);
     }
   });
 

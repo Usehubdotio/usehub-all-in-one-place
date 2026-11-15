@@ -347,27 +347,6 @@ export const Star = (p) => (
     </svg>
 );
 
-// Solana icon for Support modal
-export const SolanaIcon = (props) => (
-    <svg viewBox="0 0 64 64" fill="none" {...props}>
-        <path d="M14 16c.6-.6 1.4-1 2.2-1h40.6c1.2 0 1.8 1.5 1 2.3l-7 7c-.6.6-1.4 1-2.2 1H8c-1.2 0-1.8-1.5-1-2.3l7-7z" fill="currentColor" opacity="0.9" />
-        <path d="M14 30c.6-.6 1.4-1 2.2-1h40.6c1.2 0 1.8 1.5 1 2.3l-7 7c-.6.6-1.4 1-2.2 1H8c-1.2 0-1.8-1.5-1-2.3l7-7z" fill="currentColor" opacity="0.7" />
-        <path d="M14 44c.6-.6 1.4-1 2.2-1h40.6c1.2 0 1.8 1.5 1 2.3l-7 7c-.6.6-1.4 1-2.2 1H8c-1.2 0-1.8-1.5-1-2.3l7-7z" fill="currentColor" opacity="0.5" />
-    </svg>
-);
-
-// Ethereum icon for Support modal
-export const EthereumIcon = (props) => (
-    <svg viewBox="0 0 256 417" fill="currentColor" {...props}>
-        <path d="M127.9 0L124 13.4v266.5l3.9 3.9 127.9-75.6L127.9 0z" />
-        <path d="M127.9 0L0 208.2l127.9 75.6V0z" />
-        <path d="M127.9 307.7l-2.2 2.7v103.1l2.2 6.5L256 232.5l-128.1 75.2z" />
-        <path d="M127.9 420V307.7L0 232.5 127.9 420z" />
-        <path d="M127.9 283.8l127.9-75.6-127.9-58.2v133.8z" />
-        <path d="M0 208.2l127.9 75.6V150L0 208.2z" />
-    </svg>
-);
-
 // AI Brain icon (AI Tools category)
 export const Brain = (p) => (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" {...p}>
